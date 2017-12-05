@@ -11,10 +11,18 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         if(p1Score < winningScore){
             p1Score++;
             p1ScoreBoard.textContent = p1Score;
-            console.log(p1ScoreBoard);
-        } else if(p1Score = winningScore){
-            p1ScoreBoard.style.color = "red";
-            p1ScoreBtn.style.display = "none";
-            p2ScoreBtn.style.display = "none";
+        } else if(p1Score = winningScore-1){
+            p1ScoreBoard.style.color = "green";
+            p1ScoreBtn.disabled = true;
+            p2ScoreBtn.disabled = true;
         }
+    });
+
+    resetScoreBtn.addEventListener("click", function(){
+        p1ScoreBoard.textContent = "0";
+        p2ScoreBoard.textContent = "0";
+        p1ScoreBoard.style.color = "black";
+        p1ScoreBoard.style.color = "black";        
+        p1ScoreBtn.disabled = false;
+        p2ScoreBtn.disabled = false;
     });
