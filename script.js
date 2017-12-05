@@ -11,14 +11,15 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         if(p1Score < winningScore){
             p1Score++;
             p1ScoreBoard.textContent = p1Score;
-        } else if(p1Score = winningScore-1){
-            p1ScoreBoard.style.color = "green";
-            p1ScoreBtn.disabled = true;
-            p2ScoreBtn.disabled = true;
+        } else if(p1Score = winningScore){
+            p1ScoreBoard.classList.add = "winningColor";
+            winner();
         }
     });
 
     resetScoreBtn.addEventListener("click", function(){
+        p1Score =0;
+        p2Score = 0;
         p1ScoreBoard.textContent = "0";
         p2ScoreBoard.textContent = "0";
         p1ScoreBoard.style.color = "black";
@@ -26,3 +27,9 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         p1ScoreBtn.disabled = false;
         p2ScoreBtn.disabled = false;
     });
+
+    //disables player buttons after someone wins the game    
+    function winner(){
+        p1ScoreBtn.disabled = true;
+        p2ScoreBtn.disabled = true;
+    }
