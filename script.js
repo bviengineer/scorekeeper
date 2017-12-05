@@ -1,4 +1,4 @@
-var plScoreBoard = document.getElementById("p1-score"),
+var p1ScoreBoard = document.getElementById("p1-score"),
     p2ScoreBoard = document.getElementById("p2-score"),
     p1ScoreBtn = document.getElementById("p1-score-button"),
     p2ScoreBtn = document.getElementById("p2-score-button"),
@@ -10,5 +10,4 @@ var plScoreBoard = document.getElementById("p1-score"),
         p1Score++;
         console.log(p1Score);
         p1ScoreBoard.innerHTML = p1Score;
-
     });
