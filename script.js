@@ -19,8 +19,7 @@ var p1ScoreBoard = document.getElementById("p1-score"),
     //player 1 button
     p1ScoreBtn.addEventListener("click", function(){
         p1Score++;
-        if (p1Score === winningScore){
-            console.log(p1Score);                       
+        if (p1Score === winningScore){                      
             winner();
         } p1ScoreBoard.textContent = p1Score;
     });
@@ -52,6 +51,7 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         p1ScoreBoard.textContent = "0";
         p2ScoreBoard.textContent = "0";
         userInput.value = "";
+        maxScoreDisplay.textContent = "";
         p1ScoreBoard.classList.remove("winningColor");
         p2ScoreBoard.classList.remove("winningColor");        
         p1ScoreBtn.disabled = false;
