@@ -9,16 +9,12 @@ var p1ScoreBoard = document.getElementById("p1-score"),
     p2Score = 0,
     winningScore;
 
-    
     //event listener for user input
     userInput.addEventListener("change", function(){
-            winningScore = parseInt(userInput.value);
-            maxScoreDisplay.textContent = winningScore;
-        });
-    
+        winningScore = parseInt(userInput.value);
+        maxScoreDisplay.textContent = userInput.value;
+    });    
 
-
-    
     
     //player 1 button
     p1ScoreBtn.addEventListener("click", function(){
