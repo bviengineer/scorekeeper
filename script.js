@@ -3,14 +3,28 @@ var p1ScoreBoard = document.getElementById("p1-score"),
     p1ScoreBtn = document.getElementById("p1-score-button"),
     p2ScoreBtn = document.getElementById("p2-score-button"),
     resetScoreBtn = document.getElementById("reset-button"),
+    maxScoreDisplay = document.getElementById("max-score"),
+    userInput = document.getElementById("user-input"),
     p1Score = 0,
     p2Score = 0,
-    winningScore = 5;
+    winningScore;
 
+    
+    //event listener for user input
+    userInput.addEventListener("change", function(){
+            winningScore = parseInt(userInput.value);
+            maxScoreDisplay.textContent = winningScore;
+        });
+    
+
+
+    
+    
     //player 1 button
     p1ScoreBtn.addEventListener("click", function(){
         p1Score++;
-        if (p1Score === winningScore){                       
+        if (p1Score === winningScore){
+            console.log(p1Score);                       
             winner();
         } p1ScoreBoard.textContent = p1Score;
     });
@@ -22,6 +36,7 @@ var p1ScoreBoard = document.getElementById("p1-score"),
             winner();
         } p2ScoreBoard.textContent = p2Score;
     });
+
 
     //disables player buttons after a player wins the game & changes the color of the winning score, to green    
     function winner(){
@@ -40,6 +55,7 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         p2Score = 0;
         p1ScoreBoard.textContent = "0";
         p2ScoreBoard.textContent = "0";
+        userInput.value = "";
         p1ScoreBoard.classList.remove("winningColor");
         p2ScoreBoard.classList.remove("winningColor");        
         p1ScoreBtn.disabled = false;
