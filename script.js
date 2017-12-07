@@ -13,8 +13,18 @@ var p1ScoreBoard = document.getElementById("p1-score"),
     userInput.addEventListener("change", function(){
         winningScore = parseInt(userInput.value);
         maxScoreDisplay.textContent = userInput.value;
-    });    
-
+        p1Score = 0;
+        p2Score = 0;
+        p1ScoreBoard.textContent = "0";
+        p2ScoreBoard.textContent = "0";
+        p1ScoreBoard.classList.remove("winningColor");
+        p2ScoreBoard.classList.remove("winningColor");        
+    });
+    
+    //resets gameboard at the click of the reset button 
+    resetScoreBtn.addEventListener("click", function(){
+        resetGame();
+    });
     
     //player 1 button
     p1ScoreBtn.addEventListener("click", function(){
@@ -44,9 +54,9 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         }
     }
 
-    //resets gameboard 
-    resetScoreBtn.addEventListener("click", function(){
-        p1Score =0;
+    //will reset the game if user changes the max score or changes the max score in the middle of the game
+    function resetGame(){
+        p1Score = 0;
         p2Score = 0;
         p1ScoreBoard.textContent = "0";
         p2ScoreBoard.textContent = "0";
@@ -56,6 +66,4 @@ var p1ScoreBoard = document.getElementById("p1-score"),
         p2ScoreBoard.classList.remove("winningColor");        
         p1ScoreBtn.disabled = false;
         p2ScoreBtn.disabled = false;
-    });
-
-    
+    }
